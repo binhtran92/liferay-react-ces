@@ -5,6 +5,8 @@
 	"devDependencies": {
 		"liferay-npm-bundler": "^2.26.0",
 		"liferay-npm-build-support": "^2.26.0",
+		"liferay-npm-bundler-loader-css-loader": "2.26.0",
+		"liferay-npm-bundler-loader-style-loader": "2.26.0",
 		"copy-webpack-plugin": "4.6.0",
 		"webpack": "4.29.6",
 		"webpack-cli": "3.3.0",
@@ -16,7 +18,11 @@
 	},
 	"dependencies": {
 		"react": "16.8.6",
-		"react-dom": "16.8.6"
+		"react-dom": "16.8.6",
+		"@apollo/react-hooks": "3.1.3",
+		"apollo-boost": "0.4.4",
+		"classnames": "^2.2.6",
+		"graphql": "14.5.8"
 	},
 	"scripts": {
 		"build": "babel --source-maps -d build src && npm run copy-assets && liferay-npm-bundler",

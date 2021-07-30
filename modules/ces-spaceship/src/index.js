@@ -1,9 +1,17 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
 
-import AppComponent from './AppComponent';
+import App from './AppComponent';
+import { GRAPHQL_ENDPOINT, USER_DATA } from './constants';
 
+const apolloClient = new ApolloClient({
+	headers: {
+		'Authorization': `Basic ${btoa(`${USER_DATA.user}:${USER_DATA.password}`)}`
+	},
+	uri: GRAPHQL_ENDPOINT
+});
 
 /**
  * This is the main entry point of the portlet.
@@ -15,17 +23,12 @@ import AppComponent from './AppComponent';
  * @return {void}
  */
 export default function main({portletNamespace, contextPath, portletElementId, configuration}) {
-    
-    ReactDOM.render(
-        <AppComponent 
-            portletNamespace={portletNamespace} 
-            contextPath={contextPath}
-            portletElementId={portletElementId}
-            
-            configuration={configuration}
-            
-            />, 
-        document.getElementById(portletElementId)
-    );
-    
+	ReactDOM.render(
+		<ApolloProvider client={apolloClient}>
+			<App 
+				configuration={configuration}
+			/>
+		</ApolloProvider>,
+		document.getElementById(portletElementId)
+	);    
 }

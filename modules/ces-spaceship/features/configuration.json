@@ -1,34 +1,22 @@
 {
 	"$schema": "https://raw.githubusercontent.com/liferay/liferay-js-toolkit/master/resources/schemas/configuration.schema.json",
 	"system": {
-		"category": "ces-spaceship",
-		"name": "ces-spaceship",
+		"category": "lr.frontend.research",
+		"name": "lr-react-spaceship",
 		"fields": {
-			"fruit": {
+			"pointsColor": {
 				"type": "string",
-				"name": "fruit",
-				"description": "fruit-help",
-				"default": "orange",
-				"options": {
-					"orange": "an-orange",
-					"pear": "a-pear",
-					"apple": "an-apple"
-				}
+				"name": "points-color",
+				"default": "#4949ff"
 			}
 		}
 	},
 	"portletInstance": {
+		"name": "Spaceship Configuration",
 		"fields": {
-			"drink": {
+			"contentKey": {
 				"type": "string",
-				"name": "drink",
-				"description": "drink-help",
-				"default": "water",
-				"options": {
-					"water": "water",
-					"wine": "wine",
-					"beer": "beer"
-				}
+				"name": "structured-spaceship-content-key-web-content"
 			}
 		}
 	}
